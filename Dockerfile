@@ -1,7 +1,7 @@
 ######
-# DEV STAGE PHP
+# BASE STAGE PHP
 ######
-FROM php:8.3.4-fpm as php-dev
+FROM php:8.3.4-fpm as php-base
 
 # Install git
 RUN apt-get update && \
@@ -26,6 +26,11 @@ RUN echo "session.cookie_lifetime=2592000" >> /usr/local/etc/php/conf.d/session.
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+#####
+# DEV STAGE PHP
+#####
+
+FROM php-base as php-dev
 # Install Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash && \
     mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
@@ -42,6 +47,11 @@ RUN /user_entry_point.sh ${USER_ID} ${GROUP_ID}
 #switch to the good user
 USER ${USER_ID}:${GROUP_ID}
 
+#####
+# PROD STAGE PHP
+#####
+
+FROM php-base as php-prod
 
 ######
 # DEV STAGE NODE
