@@ -1,0 +1,28 @@
+services:
+  php:
+    build:
+      dockerfile: Dockerfile
+      target: php-prod
+    container_name: symfony_test_php
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - web
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_test_symfony
+    volumes:
+      - ./public:/var/www/html/public
+      - ./nginx/nginx.prod.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - web
+    ports:
+      - "80"
+    restart: unless-stopped
+    depends_on:
+      - php
+
+networks:
+  web:
+    external: true

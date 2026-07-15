@@ -26,10 +26,7 @@ RUN echo "session.cookie_lifetime=2592000" >> /usr/local/etc/php/conf.d/session.
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-#####
 # DEV STAGE PHP
-#####
-
 FROM php-base as php-dev
 # Install Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash && \
@@ -47,11 +44,9 @@ RUN /user_entry_point.sh ${USER_ID} ${GROUP_ID}
 #switch to the good user
 USER ${USER_ID}:${GROUP_ID}
 
-#####
-# PROD STAGE PHP
-#####
-
+# DEV STAGE PROD
 FROM php-base as php-prod
+
 
 ######
 # DEV STAGE NODE
