@@ -1,0 +1,26 @@
+{
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "watch": "vite build --watch"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^6.0.0",
+        "sass-embedded": "^1.89.2",
+        "vite": "^6.0",
+        "vite-plugin-static-copy": "^3.1.0",
+        "vite-plugin-symfony": "^8.2",
+        "vue": "^3.5.17"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-pro": "^6.7.2",
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.7",
+        "jsonwebtoken": "^9.0.3",
+        "moment": "^2.30.1",
+        "sweetalert2": "^11.22.2",
+        "vue-final-modal": "^4.5.5"
+    }
+}

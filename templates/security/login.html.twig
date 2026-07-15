@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}connexion{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+    <main class="main-content">
+        <div class="bg-glow-top"></div>
+        <div class="bg-glow-bottom"></div>
+        <div class="auth-container">
+            <header class="brand-header">
+                <h1 class="brand-logo-large">Symfony</h1>
+            </header>
+            <section class="auth-card">
+                <h2 class="card-title">Authentification</h2>
+                <p class="card-subtitle">Entrez vos identifiants pour accéder au réseau.</p>
+                <form method="post">
+
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="input-group">
+                            <span class="material-symbols-outlined input-icon">alternate_email</span>
+                            <input class="form-control" id="email" value="{{ last_username }}" name="_username"
+                                   placeholder="johnDoe@symfony.net" required="" type="email"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Mot de passe</label>
+                        <div class="input-group">
+                            <span class="material-symbols-outlined input-icon">terminal</span>
+                            <input class="form-control" id="password" name="_password" placeholder="FruitsAuSirop"
+                                   required="" type="password" autocomplete=""/>
+                        </div>
+                    </div>
+                    <button class="btn-primary" type="submit">
+                        <span>Se Connecter</span>
+                        <span class="material-symbols-outlined">login</span>
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+
+{% endblock %}
