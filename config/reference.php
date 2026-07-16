@@ -129,7 +129,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *     allowed_http_method_override?: list<string>|null,
  *     trust_x_sendfile_type_header?: scalar|null, // Set true to enable support for xsendfile in binary file responses. // Default: "%env(bool:default::SYMFONY_TRUST_X_SENDFILE_TYPE_HEADER)%"
  *     ide?: scalar|null, // Default: "%env(default::SYMFONY_IDE)%"
- *     test?: bool,
+ *     test.md?: bool,
  *     default_locale?: scalar|null, // Default: "en"
  *     set_locale_from_accept_language?: bool, // Whether to use the Accept-Language HTTP header to set the Request locale (only when the "_locale" request attribute is not passed). // Default: false
  *     set_content_language_from_locale?: bool, // Whether to set the Content-Language HTTP header on the Response using the Request locale. // Default: false
@@ -1735,7 +1735,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
  *         pentatrion_vite?: PentatrionViteConfig,
  *         lexik_jwt_authentication?: LexikJwtAuthenticationConfig,
  *     },
- *     "when@test"?: array{
+ *     "when@test.md"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
  *         services?: ServicesConfig,
@@ -1835,7 +1835,7 @@ namespace Symfony\Component\Routing\Loader\Configurator;
  * @psalm-type RoutesConfig = array{
  *     "when@dev"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     "when@prod"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
- *     "when@test"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
+ *     "when@test.md"?: array<string, RouteConfig|ImportConfig|AliasConfig>,
  *     ...<string, RouteConfig|ImportConfig|AliasConfig>
  * }
  */
